@@ -10,6 +10,8 @@ namespace PhoneBookConsoleUI
         {
             string userAnswer;
             var contacts = new List<Contact>();
+            
+           
             Console.WriteLine("Welcome to your phonebook application!");
 
 
@@ -17,19 +19,22 @@ namespace PhoneBookConsoleUI
             userAnswer = Convert.ToString(Console.ReadLine());
             
 
-            if (userAnswer == "1")
+            if (userAnswer == "1") //View All
             {
-                Console.WriteLine("One");
+                SeeAllContacts(contacts);
+                
             }
-            else if (userAnswer == "2")
+            else if (userAnswer == "2") //Create
             {
-                Console.WriteLine("Two");
+               var newContact = CreateContact();
+               contacts.Add(newContact);
+                
             }
-            else if (userAnswer == "3")
+            else if (userAnswer == "3") //Update
             {
                 Console.WriteLine("Three");
             }
-            else if (userAnswer == "4")
+            else if (userAnswer == "4") //Delete
             {
                 Console.WriteLine("Four");
             }
@@ -38,9 +43,30 @@ namespace PhoneBookConsoleUI
                 Console.WriteLine("Please enter a valid response");
             }
 
+        }
 
+        public static void SeeAllContacts(List<Contact> contacts)
+        {
+            foreach (var item in contacts)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
-
+        public static Contact CreateContact()
+        {
+            Console.WriteLine("What is the first name of the person you want to add?");
+            var contact = new Contact();
+            contact.FirstName = Console.ReadLine();
+            Console.WriteLine("What is the last name of the person you want to add?");
+            contact.LastName = Console.ReadLine();
+            Console.WriteLine("What is the phone number of the person?");
+            contact.PhoneNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("What is the email for this contact?");
+            contact.EmailAddress = Console.ReadLine();
+            Console.WriteLine("What home address would you like to enter for this contact?");
+            contact.HomeAddress = Console.ReadLine();
+            return contact;
         }
 
     }   
