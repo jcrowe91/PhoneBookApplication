@@ -11,6 +11,7 @@ namespace PhoneBookConsoleUI
             
             bool cont = true;
             var contacts = new List<Contact>();
+
             #region TEST CONTACT
             var test = new Contact();
             test.FirstName = "Albert";
@@ -19,6 +20,23 @@ namespace PhoneBookConsoleUI
             test.HomeAddress = "Raccoon City";
             test.EmailAddress = "awesker@umbrella.com";
             contacts.Add(test);
+
+            var test2 = new Contact();
+            test2.FirstName = "Ulfric";
+            test2.LastName = "Stormcloak";
+            test2.PhoneNumber = 5555555;
+            test2.HomeAddress = "Windhelm";
+            test2.EmailAddress = "skyrimforthenords@hrothgar.com";
+            contacts.Add(test2);
+
+            var test3 = new Contact();
+            test3.FirstName = "Kaz";
+            test3.LastName = "Miller";
+            test3.PhoneNumber = 5555555;
+            test3.HomeAddress = "Mother Base";
+            test3.EmailAddress = "playeduslikeafiddle@outerheaven.org";
+            contacts.Add(test3);
+;
             #endregion
 
             Console.WriteLine("Welcome to your phonebook application!");
