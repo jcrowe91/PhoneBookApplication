@@ -8,7 +8,14 @@ namespace PhoneBookConsoleUI
     {
         static void Main(string[] args)
         {
-            
+            //Things to think about
+            /*
+             * 1. Have a class that handles business logic, keep that in your Library, A Contact doesn't need to know how to create, read, update, or delete itself.
+             * 1a. Will you need to have more than one instance of this new class?
+             * 2. Think about adding a class that handles user interactions with the console, where should that class go
+             * 2a. Should there ever be more than one instance of that class?
+             */
+
             bool cont = true;
             var contacts = new List<Contact>();
 
