@@ -1,5 +1,6 @@
 ﻿using PhoneBookLibrary;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,7 @@ namespace PhoneBookConsoleUI
             }
             else if (userAnswer == "5")
             {
+                SaveContacts(contacts);
                 Console.WriteLine("Have a great day!");
                 Environment.Exit(0);
             }
@@ -45,6 +47,33 @@ namespace PhoneBookConsoleUI
                 Console.WriteLine("Please enter a valid response");
 
             }
+        }
+
+        public static void SaveContacts(List<Contact> contacts)
+        {
+            string fileName = @"C:/Users/Public/Documents/PhonebookContacts.txt";
+
+                               
+           if (File.Exists(fileName))
+           {
+               File.Delete(fileName);
+           }
+                
+           using (StreamWriter sw = File.CreateText(fileName))
+           {
+          
+               foreach (var item in contacts)
+               {
+                   sw.WriteLine($"Name: {item.FirstName} {item.LastName}" +
+                       $"\nPhone Number: {item.PhoneNumber}" +
+                       $"\nEmail Address: {item.EmailAddress}" +
+                       $"\nHome Address: {item.HomeAddress}" +
+                       $"\n--------------------------------------------------");
+               }
+          
+           }
+          
+          
         }
     }
 }
