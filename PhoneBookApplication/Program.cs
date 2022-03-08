@@ -1,5 +1,6 @@
 ﻿using PhoneBookLibrary;
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 namespace PhoneBookConsoleUI
@@ -15,10 +16,11 @@ namespace PhoneBookConsoleUI
              * 2. Think about adding a class that handles user interactions with the console, where should that class go
              * 2a. Should there ever be more than one instance of that class?
              */
-
+            string fileName = @"C:/Users/Public/Documents/PhonebookContacts.txt";            
+            StreamReader sr = new StreamReader(fileName);             
             bool cont = true;
             var contacts = new List<Contact>();
-
+            
             #region TEST CONTACT
             var test = new Contact();
             test.FirstName = "Albert";

@@ -39,7 +39,7 @@ namespace PhoneBookConsoleUI
             else if (userAnswer == "5")
             {
                 SaveContacts(contacts);
-                Console.WriteLine("Have a great day!");
+                Console.WriteLine("Saved your contacts! Have a great day!");
                 Environment.Exit(0);
             }
             else
@@ -68,7 +68,8 @@ namespace PhoneBookConsoleUI
                        $"\nPhone Number: {item.PhoneNumber}" +
                        $"\nEmail Address: {item.EmailAddress}" +
                        $"\nHome Address: {item.HomeAddress}" +
-                       $"\n--------------------------------------------------");
+                       $"\n--------------------------------------------------" +
+                       $"\r\n");
                }
           
            }
