@@ -15,15 +15,15 @@ namespace PhoneBookConsoleUI
         {
             
             string userAnswer;            
-            Console.WriteLine($"What would you like to do?\n1: View All Contacts\n2: Create a New Contact\n3: Update A Contact\n4: Delete A Contact\n5: Save and Exit");
+            ConsoleLogging.MainMenu();
             userAnswer = Console.ReadLine();
 
-            if (userAnswer == "1") //View All
+            if (userAnswer == "1") 
             {
                 Console.Clear();
                 ContactLogic.SeeAllContacts(contacts);
             }
-            else if (userAnswer == "2") //Create
+            else if (userAnswer == "2")
             {
                 Console.Clear();
                 Console.WriteLine("Create New Contact:");
@@ -31,12 +31,12 @@ namespace PhoneBookConsoleUI
                 contacts.Add(newContact);
 
             }
-            else if (userAnswer == "3") //Update
+            else if (userAnswer == "3") 
             {
                 Console.Clear();
                 ContactLogic.UpdateContact(contacts);
             }
-            else if (userAnswer == "4") //Delete
+            else if (userAnswer == "4") 
             {
                 Console.Clear();
                 ContactLogic.DeleteContact(contacts);
@@ -44,58 +44,18 @@ namespace PhoneBookConsoleUI
             else if (userAnswer == "5")
             {
                 Console.Clear();
-                SaveContacts(contacts, filePath);                
-                Console.WriteLine($"\nSaved your contacts! Have a great day!");
-                Environment.Exit(0);
+                FileManipulation.SaveContacts(contacts, filePath);
+                ConsoleLogging.ExitMessage();
             }
             else
             {
-                Console.WriteLine("Please enter a valid response");
+                ConsoleLogging.InvalidResponse();
 
             }
         }
 
-        public static void LoadContacts(List<Contact> contacts, string filePath)
-        {
+        
 
-
-            if (!File.Exists(filePath))
-            {
-                File.Create(filePath).Close();
-            }
-
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-            foreach (var line in lines)
-            {
-                string[] entries = line.Split(',');
-
-                Contact newContact = new Contact();
-                newContact.FirstName = entries[0];
-                newContact.LastName = entries[1];
-                newContact.PhoneNumber = (entries[2]);
-                newContact.EmailAddress = entries[3];
-                newContact.HomeAddress = entries[4];
-                contacts.Add(newContact);                
-            }
-        }
-
-        public static void SaveContacts(List<Contact> contacts, string filePath)
-        {
-            List<string> output = new List<string>();
-
-            foreach (var item in contacts)
-            {
-                output.Add($"{item.FirstName},{item.LastName},{item.PhoneNumber},{item.EmailAddress},{item.HomeAddress}");
-            }
-
-            File.WriteAllLines(filePath, output);           
-
-            for (int i = 0; i < 10; i++)
-            {
-                Thread.Sleep(300);
-                Console.Write('.');
-            }
-
-        }
+        
     }
 }
