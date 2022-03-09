@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PhoneBookConsoleUI
 {
@@ -16,39 +17,40 @@ namespace PhoneBookConsoleUI
              * 2. Think about adding a class that handles user interactions with the console, where should that class go
              * 2a. Should there ever be more than one instance of that class?
              */
-            string fileName = @"C:/Users/Public/Documents/PhonebookContacts.txt";            
-            StreamReader sr = new StreamReader(fileName);             
+
             bool cont = true;
-            var contacts = new List<Contact>();
-            
+            string filePath = Directory.GetCurrentDirectory();
+            List<Contact> contacts = new List<Contact>();
+
             #region TEST CONTACT
-            var test = new Contact();
-            test.FirstName = "Albert";
-            test.LastName = "Wesker";
-            test.PhoneNumber = 5555555;
-            test.HomeAddress = "Raccoon City";
-            test.EmailAddress = "awesker@umbrella.com";
-            contacts.Add(test);
+            //var test = new Contact();
+            //test.FirstName = "Albert";
+            //test.LastName = "Wesker";
+            //test.PhoneNumber = 555555;
+            //test.HomeAddress = "Raccoon City";
+            //test.EmailAddress = "awesker@umbrella.com";
+            ////contacts.Add(test);
 
-            var test2 = new Contact();
-            test2.FirstName = "Ulfric";
-            test2.LastName = "Stormcloak";
-            test2.PhoneNumber = 5555555;
-            test2.HomeAddress = "Windhelm";
-            test2.EmailAddress = "skyrimforthenords@hrothgar.com";
-            contacts.Add(test2);
+            //var test2 = new Contact();
+            //test2.FirstName = "Ulfric";
+            //test2.LastName = "Stormcloak";
+            //test2.PhoneNumber = 5555555;
+            //test2.HomeAddress = "Windhelm";
+            //test2.EmailAddress = "skyrimforthenords@hrothgar.com";
+            ////contacts.Add(test2);
 
-            var test3 = new Contact();
-            test3.FirstName = "Kaz";
-            test3.LastName = "Miller";
-            test3.PhoneNumber = 5555555;
-            test3.HomeAddress = "Mother Base";
-            test3.EmailAddress = "playeduslikeafiddle@outerheaven.org";
-            contacts.Add(test3);
+            //var test3 = new Contact();
+            //test3.FirstName = "Kaz";
+            //test3.LastName = "Miller";
+            //test3.PhoneNumber = 5555555;
+            //test3.HomeAddress = "Mother Base";
+            //test3.EmailAddress = "playeduslikeafiddle@outerheaven.org";
+            ////contacts.Add(test3);
 ;
             #endregion
 
             Console.WriteLine("Welcome to your phonebook application!");
+            UserInteractionLogic.LoadContacts(contacts, filePath);
 
             while (cont == true)
             {

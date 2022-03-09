@@ -90,7 +90,7 @@ namespace PhonebookForm
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(117, 60);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Exit";
+            this.button5.Text = "Save and Exit";
             this.button5.UseVisualStyleBackColor = false;
             // 
             // textBox1

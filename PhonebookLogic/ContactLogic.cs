@@ -56,7 +56,7 @@ namespace PhoneBookLibrary
             Console.WriteLine("What is the last name of the person?");
             contact.LastName = Console.ReadLine();
             Console.WriteLine("What is the phone number of the person?");
-            contact.PhoneNumber = Convert.ToInt32(Console.ReadLine());
+            contact.PhoneNumber = (Console.ReadLine());
             Console.WriteLine("What is the email for this contact?");
             contact.EmailAddress = Console.ReadLine();
             Console.WriteLine("What home address would you like to enter for this contact?");
