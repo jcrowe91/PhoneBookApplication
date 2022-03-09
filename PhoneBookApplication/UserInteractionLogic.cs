@@ -11,7 +11,7 @@ namespace PhoneBookConsoleUI
 {
     public class UserInteractionLogic
     {
-        public static void PhonebookMenu(List<Contact> contacts)
+        public static void PhonebookMenu(List<Contact> contacts, string filePath)
         {
             
             string userAnswer;            
@@ -44,7 +44,7 @@ namespace PhoneBookConsoleUI
             else if (userAnswer == "5")
             {
                 Console.Clear();
-                //SaveContacts(contacts, filePath);                
+                SaveContacts(contacts, filePath);                
                 Console.WriteLine($"\nSaved your contacts! Have a great day!");
                 Environment.Exit(0);
             }
@@ -61,7 +61,7 @@ namespace PhoneBookConsoleUI
 
             if (!File.Exists(filePath))
             {
-                File.Create(filePath);
+                File.Create(filePath).Close();
             }
 
             List<string> lines = File.ReadAllLines(filePath).ToList();

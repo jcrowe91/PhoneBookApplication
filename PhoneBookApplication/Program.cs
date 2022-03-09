@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace PhoneBookConsoleUI
 {
@@ -19,7 +20,7 @@ namespace PhoneBookConsoleUI
              */
 
             bool cont = true;
-            string filePath = Directory.GetCurrentDirectory();
+            string filePath = $"{Directory.GetCurrentDirectory()}/Contacts.txt";
             List<Contact> contacts = new List<Contact>();
 
             #region TEST CONTACT
@@ -54,7 +55,7 @@ namespace PhoneBookConsoleUI
 
             while (cont == true)
             {
-               UserInteractionLogic.PhonebookMenu(contacts);               
+               UserInteractionLogic.PhonebookMenu(contacts, filePath);               
             }
         }                     
 
