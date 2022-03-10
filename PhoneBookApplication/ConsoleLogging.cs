@@ -38,5 +38,29 @@ namespace PhoneBookLibrary
                 UserInteractionLogic.PhonebookMenu(contacts, filePath);
             }
         }
+
+        public static void PassMessage(string message)
+        {
+            Console.WriteLine(message);            
+        }
+
+        public static void CRUDForLoop(List<Contact> contacts)
+        {
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Console.WriteLine($"ID: {i + 1} {contacts[i].FirstName} {contacts[i].LastName}\nPhone Number: {contacts[i].PhoneNumber}\nEmail Address: {contacts[i].EmailAddress}\nHome Address: {contacts[i].HomeAddress}");
+                Console.WriteLine("-----------------------------");
+            }
+        }
+
+        public static void CRUDForeachLoop(List<Contact> contacts)
+        {
+            Console.Clear();
+            foreach (var item in contacts)
+            {
+                Console.WriteLine($"{item.FirstName} {item.LastName}\nPhone Number: {item.PhoneNumber}\nEmail Address: {item.EmailAddress}\nHome Address: {item.HomeAddress}");
+                Console.WriteLine("-----------------------------");
+            }
+        }
     }
 }
