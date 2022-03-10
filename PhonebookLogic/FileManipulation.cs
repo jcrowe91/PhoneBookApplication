@@ -16,7 +16,7 @@ namespace PhoneBookLibrary
             return filePath;
         }
         
-        public static void LoadContacts(List<Contact> contacts, string filePath)
+        public static void LoadContactsCSV(List<Contact> contacts, string filePath)
         {
 
 
@@ -40,7 +40,7 @@ namespace PhoneBookLibrary
             }
         }
 
-        public static void SaveContacts(List<Contact> contacts, string filePath)
+        public static void SaveContactsCSV(List<Contact> contacts, string filePath)
         {
             List<string> output = new List<string>();
 

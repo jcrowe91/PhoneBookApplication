@@ -15,7 +15,7 @@ namespace PhoneBookLibrary
             List<Contact> contacts = new List<Contact>();
 
             ConsoleLogging.WelcomeMessage();
-            FileManipulation.LoadContacts(contacts, filePath);
+            FileManipulation.LoadContactsCSV(contacts, filePath);
 
             ConsoleLogging.MainConsole(contacts, filePath);
         }                     
