@@ -1,5 +1,4 @@
-﻿using PhoneBookLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PhoneBookConsoleUI
+namespace PhoneBookLibrary
 {
     public class FileManipulation
     {
@@ -16,7 +15,7 @@ namespace PhoneBookConsoleUI
             string filePath = $"{Directory.GetCurrentDirectory()}/Contacts.txt";
             return filePath;
         }
-
+        
         public static void LoadContacts(List<Contact> contacts, string filePath)
         {
 
@@ -34,7 +33,7 @@ namespace PhoneBookConsoleUI
                 Contact newContact = new Contact();
                 newContact.FirstName = entries[0];
                 newContact.LastName = entries[1];
-                newContact.PhoneNumber = (entries[2]);
+                newContact.PhoneNumber = entries[2];
                 newContact.EmailAddress = entries[3];
                 newContact.HomeAddress = entries[4];
                 contacts.Add(newContact);

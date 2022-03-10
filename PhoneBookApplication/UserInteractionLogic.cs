@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace PhoneBookConsoleUI
+namespace PhoneBookLibrary
 {
     public class UserInteractionLogic
     {

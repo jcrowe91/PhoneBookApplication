@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhoneBookConsoleUI
+namespace PhoneBookLibrary
 {
     public class ConsoleLogging
     {
@@ -30,9 +30,13 @@ namespace PhoneBookConsoleUI
             Console.WriteLine("Please enter a valid response");
         }
 
-        public static void ListContacts()
+        public static void MainConsole(List<Contact> contacts, string filePath)
         {
-            
+            bool cont = true;
+            while (cont == true)
+            {
+                UserInteractionLogic.PhonebookMenu(contacts, filePath);
+            }
         }
     }
 }
