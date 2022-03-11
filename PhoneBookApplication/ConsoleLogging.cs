@@ -30,12 +30,12 @@ namespace PhoneBookLibrary
             Console.WriteLine("Please enter a valid response");
         }
 
-        public static void MainConsole(List<Contact> contacts, string filePath)
+        public static void MainConsole(List<Contact> contacts)
         {
             bool cont = true;
             while (cont == true)
             {
-                UserInteractionLogic.PhonebookMenu(contacts, filePath);
+                UserInteractionLogic.PhonebookMenu(contacts);
             }
         }
 

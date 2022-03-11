@@ -16,9 +16,9 @@ namespace PhoneBookLibrary
             return filePath;
         }
         
-        public static void LoadContactsCSV(List<Contact> contacts, string filePath)
+        public static void LoadContactsCSV(List<Contact> contacts)
         {
-
+            string filePath = FileManipulation.FilePath();
 
             if (!File.Exists(filePath))
             {
@@ -40,9 +40,10 @@ namespace PhoneBookLibrary
             }
         }
 
-        public static void SaveContactsCSV(List<Contact> contacts, string filePath)
+        public static void SaveContactsCSV(List<Contact> contacts)
         {
             List<string> output = new List<string>();
+            string filePath = FileManipulation.FilePath();
 
             foreach (var item in contacts)
             {

@@ -11,7 +11,7 @@ namespace PhoneBookLibrary
 {
     public class UserInteractionLogic
     {
-        public static void PhonebookMenu(List<Contact> contacts, string filePath)
+        public static void PhonebookMenu(List<Contact> contacts)
         {            
             string userAnswer;            
             ConsoleLogging.MainMenu();
@@ -43,7 +43,7 @@ namespace PhoneBookLibrary
             else if (userAnswer == "5")
             {
                 Console.Clear();
-                FileManipulation.SaveContactsCSV(contacts, filePath);
+                FileManipulation.SaveContactsCSV(contacts);
                 ConsoleLogging.ExitMessage();
             }
             else
