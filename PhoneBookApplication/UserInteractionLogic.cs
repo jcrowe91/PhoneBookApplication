@@ -12,8 +12,7 @@ namespace PhoneBookLibrary
     public class UserInteractionLogic
     {
         public static void PhonebookMenu(List<Contact> contacts, string filePath)
-        {
-            
+        {            
             string userAnswer;            
             ConsoleLogging.MainMenu();
             userAnswer = Console.ReadLine();
