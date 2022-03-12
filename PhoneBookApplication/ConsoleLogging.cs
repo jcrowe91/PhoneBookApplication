@@ -9,6 +9,7 @@ namespace PhoneBookLibrary
 {
     public class ConsoleLogging
     {
+        //class for handling methods to print information to the user
         public static void WelcomeMessage()
         {
             Console.WriteLine("Welcome to your phonebook application!");

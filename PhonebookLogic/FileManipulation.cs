@@ -10,15 +10,18 @@ namespace PhoneBookLibrary
 {
     public class FileManipulation
     {
+        //class for handling the location of, saving to, and reading from the .csv file that holds the contact information
         public static string FilePath()
         {
+            //get the current directory on local machine and create a Contacts.txt file to save contacts to
             string filePath = $"{Directory.GetCurrentDirectory()}/Contacts.txt";
             return filePath;
         }
         
         public static void LoadContactsCSV(List<Contact> contacts)
         {
-            string filePath = FileManipulation.FilePath();
+            //method for reading from the .csv file, and converting the info to a list of contacts
+            string filePath = FilePath();
 
             if (!File.Exists(filePath))
             {
@@ -42,6 +45,7 @@ namespace PhoneBookLibrary
 
         public static void SaveContactsCSV(List<Contact> contacts)
         {
+            //method for allowing user to save updated list of contacts back to .csv file
             List<string> output = new List<string>();
             string filePath = FileManipulation.FilePath();
 
@@ -52,6 +56,7 @@ namespace PhoneBookLibrary
 
             File.WriteAllLines(filePath, output);
 
+            //for loop to simulate saving progress
             for (int i = 0; i < 10; i++)
             {
                 Thread.Sleep(300);

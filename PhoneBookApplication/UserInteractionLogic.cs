@@ -17,13 +17,16 @@ namespace PhoneBookLibrary
             ConsoleLogging.MainMenu();
             userAnswer = Console.ReadLine();
 
+            //if-else statment for user selection, choosing 1-5 on the main menu          
             if (userAnswer == "1") 
             {
+                //read CRUD command
                 Console.Clear();
                 SeeAllContacts(contacts);
             }
             else if (userAnswer == "2")
             {
+                //create CRUD command
                 Console.Clear();
                 ConsoleLogging.PassMessage("Create New Contact:");
                 var newContact = CreateContact();
@@ -32,22 +35,26 @@ namespace PhoneBookLibrary
             }
             else if (userAnswer == "3") 
             {
+                //update CRUD command
                 Console.Clear();
                 UpdateContact(contacts);
             }
             else if (userAnswer == "4") 
             {
+                //delete CRUD command
                 Console.Clear();
                 DeleteContact(contacts);
             }
             else if (userAnswer == "5")
             {
+                //save the current list of contacts back to .csv file and exit the program
                 Console.Clear();
                 FileManipulation.SaveContactsCSV(contacts);
                 ConsoleLogging.ExitMessage();
             }
             else
             {
+                //any other response will trigger an invalid message
                 ConsoleLogging.InvalidResponse();
 
             }
@@ -55,11 +62,14 @@ namespace PhoneBookLibrary
 
         public static void SeeAllContacts(List<Contact> contacts)
         {
+            //display all contacts using foreach method
             ConsoleLogging.CRUDForeachLoop(contacts);
         }
 
         public static void DeleteContact(List<Contact> contacts)
         {
+            //delete method and update method use a for loop for displaying IDs to user
+            //for the delete function, use RemoveAt method and generated ID number to take the desired contact from contacts list
             ConsoleLogging.CRUDForLoop(contacts);
 
             ConsoleLogging.PassMessage("What is the ID of the contact you'd like to delete?");
@@ -71,6 +81,7 @@ namespace PhoneBookLibrary
 
         public static void UpdateContact(List<Contact> contacts)
         {
+            //for update method, user chooses ID of the contact to update and the CreateContact method is called
             ConsoleLogging.CRUDForLoop(contacts);
 
             ConsoleLogging.PassMessage("What is the ID of the contact you'd like to update?");
@@ -81,7 +92,8 @@ namespace PhoneBookLibrary
         }
 
         public static Contact CreateContact()
-        {            
+        {     
+            //method to create a new contact and allow the user to set each property, returning the new contact
             var contact = new Contact();
             ConsoleLogging.PassMessage("What is the first name of the person?");
             contact.FirstName = Console.ReadLine();
