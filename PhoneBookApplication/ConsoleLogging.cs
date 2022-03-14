@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhoneBookLibrary
+namespace PhoneBookConsoleUI
 {
     public class ConsoleLogging
     {
-        //class for handling methods to print information to the user
         public static void WelcomeMessage()
         {
             Console.WriteLine("Welcome to your phonebook application!");
@@ -33,8 +32,8 @@ namespace PhoneBookLibrary
 
         public static void MainConsole(List<Contact> contacts)
         {
-            bool cont = true;
-            while (cont == true)
+            //user will specify when the application is done
+            while (true)
             {
                 UserInteractionLogic.PhonebookMenu(contacts);
             }
@@ -45,10 +44,17 @@ namespace PhoneBookLibrary
             Console.WriteLine(message);            
         }
 
+        public static void ClearConsole()
+        {
+            Console.Clear();
+        }
+
         public static void CRUDForLoop(List<Contact> contacts)
         {
+            //used in update and delete methods
             for (int i = 0; i < contacts.Count; i++)
             {
+                //loop through each contact, assign an ID number, and display the properties of each
                 Console.WriteLine($"ID: {i + 1} {contacts[i].FirstName} {contacts[i].LastName}\nPhone Number: {contacts[i].PhoneNumber}\nEmail Address: {contacts[i].EmailAddress}\nHome Address: {contacts[i].HomeAddress}");
                 Console.WriteLine("-----------------------------");
             }
@@ -56,10 +62,12 @@ namespace PhoneBookLibrary
 
         public static void CRUDForeachLoop(List<Contact> contacts)
         {
-            Console.Clear();
-            foreach (var item in contacts)
+            //used in GetAllContacts method
+            ClearConsole();
+            foreach (var contact in contacts)
             {
-                Console.WriteLine($"{item.FirstName} {item.LastName}\nPhone Number: {item.PhoneNumber}\nEmail Address: {item.EmailAddress}\nHome Address: {item.HomeAddress}");
+                //display properties of each contact in list
+                Console.WriteLine($"{contact.FirstName} {contact.LastName}\nPhone Number: {contact.PhoneNumber}\nEmail Address: {contact.EmailAddress}\nHome Address: {contact.HomeAddress}");
                 Console.WriteLine("-----------------------------");
             }
         }
